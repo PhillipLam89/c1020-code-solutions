@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML Web Page</title>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    td:not(:first-child) {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- your HTML code here 👇 -->
+  <h1>Jelly of the Month Club</h1>
+
+  <h1>Make all your friends jelly of your stock of jelly!</h1>
+  <p>Here at JOTMC Inc., we are constantly striving to supply our customers with the highest-quality and most unique jellies on a monthly basis. For the jelly lover in your</p>
+  <p>life (or yourself!), this is the gift that keeps on giving all year round. Wwe offer three tiers of monthly jelly toy, and each one offers their own perks. Here is a breakdown</p>
+  <p>of each, as well as your monthly price:</p>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th colspan="1">          </th>
+          <th colspan="1">Basic Plan</th>
+          <th colspan="1">Deluxe Plan</th>
+          <th colspan="1">Jelly Giant Plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Three new curated jellies per month</td>
+          <td>&check;</td>
+          <td>&check;</td>
+          <td>&check;</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>Monthly jellies come with commemorative mason jars</td>
+          <td></td>
+          <td>&check;</td>
+          <td>&check;</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>Free yearly tickets to Jelly Con</td>
+          <td></td>
+          <td></td>
+          <td>&check;</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>Monthly Pricing</td>
+          <td>$30</td>
+          <td>$50</td>
+          <td>$60</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>Three new curated jellies per month</td>
+          <td>&check;</td>
+          <td>&check;</td>
+          <td>&check;</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Like what you see? Become a part of the JOTMC family today!</p>
+
+    <label for="user-name">
+        <input id="user-name" type="text" placeholder="Your Name">
+    </label>
+
+    <label for="plans">
+        <select name="dropdown" id="plans">
+          <option value="placeholder" >Select Your Plan</option>
+          <option value="option">Basic Plan</option>
+          <option value="option">Deluxe Plan</option>
+          <option value="option">Jelly Giant Plan</option>
+        </select>
+    </label>
+
+     <label for="submit"></label>
+     <input id="submit" type="submit" value="Submit">
+
+
+ </body>
+</html>
