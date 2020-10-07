@@ -1,0 +1,15 @@
+button:hover {
+  background-color: green;
+}
+
+.table-headings {
+  background-color: black;
+}
+
+.heading {
+  color: white;
+}
+
+.has-background {
+  background-color: gray;
+}
