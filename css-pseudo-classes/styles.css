@@ -2,14 +2,14 @@ button:hover {
   background-color: green;
 }
 
-.table-headings {
+thead > tr {
   background-color: black;
 }
 
-.heading {
+table > thead > tr {
   color: white;
 }
 
-.has-background {
+tbody > tr:nth-child(odd) {
   background-color: gray;
 }
