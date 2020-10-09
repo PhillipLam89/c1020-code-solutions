@@ -1,45 +1,47 @@
-.container {
+* {
+  box-sizing: border-box;
+}
+
+.container-all {
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  margin: 0 auto;
+  border: 2px solid green;
+}
+
+.row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.column-half {
+  width: 50%;
+  margin: 0;
+  text-align: center;
 }
 
 h2 {
-  height: 15%;
-}
-
-.column-link-yoshi {
-  font-size: 10px;
-  display: flex;
-  justify-content: space-evenly;
+  text-align: center;
 }
 
 .text {
-  display: inline-block;
-  font-size: 15px;
-  font-weight: bold;
+  margin-left: 20%;
 }
 
-.column-mario-dk {
-  width: 800px;
-  display: flex;
-  justify-content: space-around;
+.column-thirds {
+  width: calc(100% / 3);
 }
 
-.pics > img {
-  margin-left: auto;
-  width: 150px;
-  display: flex;
-  justify-content: left;
+.column-four {
+  width: 25%;
 }
 
-.column-four-items {
-  width: 800px;
-  display: flex;
-  justify-content: space-between;
+.row4 {
+  width: 100%;
+}
+
+#kirby {
+  height: 100%;
 }
