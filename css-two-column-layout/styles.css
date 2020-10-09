@@ -1,0 +1,43 @@
+* {
+  color: black;
+  font-weight: ;
+  font-family: sans-serif;
+  line-height: 1.5rem;
+}
+
+.row1 {
+  text-align: center;
+  width: 100%;
+}
+
+.row2 {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-all {
+  height: 1200px;
+}
+
+.box1 {
+  display: flex;
+  flex-wrap: wrap;
+  height: 50%;
+}
+
+.column-full {
+  text-align: center;
+}
+
+.button {
+  width: 200%;
+  background-color: white;
+  color: red;
+  border: 3px solid red;
+}
+
+.row4 {
+  display: flex;
+  justify-content: center;
+}
