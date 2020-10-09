@@ -1,0 +1,48 @@
+h3 {
+  text-align: center;
+  color: red;
+}
+
+form {
+  width: 400px;
+  margin: auto;
+}
+
+form > div {
+  text-align: left;
+}
+
+.engineers {
+  font-size: 10px;
+}
+
+#input {
+  border-radius: 5px;
+  border-color: rgb(236, 231, 231, 0.5);
+  height: 35px;
+  width: 21rem;
+}
+
+#selection-box {
+  height: 2rem;
+  width: 21rem;
+  background-color: lightgray;
+  border-radius: 6px;
+}
+
+.button-right {
+  width: 41.5rem;
+  text-align: center;
+}
+
+.submit-button {
+  color: white;
+  background-color: lightcoral;
+  margin-top: 8px;
+  border-radius: 20%;
+}
+
+.button {
+  width: 85%;
+  text-align: right;
+}
