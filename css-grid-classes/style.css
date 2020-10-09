@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+.container-all {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 2px solid green;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.column-half {
+  width: 50%;
+  margin: 0;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.text {
+  margin-left: 20%;
+}
+
+.column-thirds {
+  width: calc(100% / 3);
+}
+
+.column-four {
+  width: 25%;
+}
+
+.row4 {
+  width: 100%;
+}
+
+#kirby {
+  height: 100%;
+}
