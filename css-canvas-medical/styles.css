@@ -1,15 +1,8 @@
-.big-container {
-  height: auto;
-  width: 1200px;
-  align-items: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-top: 2%;
-}
 
 body {
   font-family: sans-serif;
   font-size: 12px;
+  border: 4px solid red;
 }
 
 p,
@@ -31,7 +24,16 @@ h2 {
   font-weight: bold;
 }
 
-.container3 > .physician2 {
+#big-container {
+  height: auto;
+  width: 1200px;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 2%;
+}
+
+#container3 > .physician2 {
   margin: 0;
   padding: 0;
 }
@@ -47,8 +49,8 @@ p > a {
   color: white;
 }
 
-.container,
-.container2 {
+#container,
+#container2 {
   width: 100%;
 }
 
@@ -82,7 +84,7 @@ p > a {
   height: 2rem;
 }
 
-.container2 {
+#container2 {
   margin-top: 2%;
   margin-bottom: 4%;
   width: 100%;
@@ -127,7 +129,7 @@ p > a {
   margin-top: auto;
 }
 
-.container3 {
+#container3 {
   width: 100%;
   color: darkgray;
   background-color: rgba(248, 239, 239, 0.5);
@@ -156,7 +158,7 @@ p > a {
   align-items: center;
 }
 
-.container4 {
+#container4 {
   margin-top: 0;
   padding-left: 4%;
   padding-bottom: 4%;
@@ -172,7 +174,7 @@ p > a {
   margin: 0;
 }
 
-.container5 {
+#container5 {
   display: flex;
   justify-content: space-between;
   margin-left: 12%;
@@ -196,7 +198,7 @@ p > a {
   margin-bottom: 8%;
 }
 
-.container6 {
+#container6 {
   background-color: grey;
   padding-top: 5%;
   margin-left: 2%;
@@ -220,7 +222,7 @@ p > a {
   line-height: 1.8rem;
 }
 
-.container7 {
+#container7 {
   margin-right: 2%;
   margin-left: 2%;
   padding-top: 2%;
