@@ -1,7 +1,10 @@
 .big-container {
   height: auto;
-  width: 100%;
+  width: 1200px;
   align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 2%;
 }
 
 body {
@@ -9,14 +12,26 @@ body {
   font-size: 12px;
 }
 
-h2 {
-  padding: 0;
+p,
+li,
+ul {
   margin: 0;
+  padding: 0;
+}
+
+h1 > p {
+  width: 80%;
+  line-height: 2rem;
+  margin-top: 4rem;
+}
+
+h2 {
+  padding-top: 0;
+  margin-top: 0;
   font-weight: bold;
 }
 
-li,
-ul {
+.container3 > .physician2 {
   margin: 0;
   padding: 0;
 }
@@ -69,6 +84,7 @@ p > a {
 
 .container2 {
   margin-top: 2%;
+  margin-bottom: 4%;
   width: 100%;
   text-align: center;
   position: relative;
@@ -77,7 +93,7 @@ p > a {
 .heading-1 {
   position: absolute;
   left: 5.5rem;
-  top: 7rem;
+  top: 2rem;
   color: white;
   font-weight: bolder;
   line-height: 0.5rem;
@@ -87,14 +103,13 @@ p > a {
 
 .paragraph {
   position: absolute;
-  opacity: 0.9;
   top: 12.5rem;
   left: 5.5rem;
   width: 320px;
   color: white;
   text-align: left;
   font-weight: bold;
-  line-height: 1.3rem;
+  line-height: 1.6rem;
   overflow: hidden;
   height: fit-content;
 }
@@ -115,9 +130,10 @@ p > a {
 .container3 {
   width: 100%;
   color: darkgray;
-  background-color: rgba(247, 242, 242, 0.9);
+  background-color: rgba(248, 239, 239, 0.5);
   text-align: center;
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .physician {
@@ -146,7 +162,7 @@ p > a {
   text-align: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(247, 242, 242, 0.9);
+  background-color: rgba(248, 239, 239, 0.5);
 }
 
 .list-wrapper2 {
@@ -189,13 +205,17 @@ p > a {
   font-weight: bold;
   display: flex;
   justify-content: space-around;
-  line-height: 1.3rem;
+}
+
+.canvas-wrapper > p {
+  line-height: 1rem;
 }
 
 .canvas-wrapper {
   text-decoration: none;
   color: whitesmoke;
   font-weight: bold;
+  line-height: 1.8rem;
 }
 
 .container7 {
@@ -207,7 +227,7 @@ p > a {
   color: grey;
   display: flex;
   font-weight: bold;
-  background-color: rgba(247, 242, 242, 0.9);
+  background-color: rgba(248, 239, 239, 0.5);
 }
 
 .final-wrapper {
