@@ -8,10 +8,6 @@
   /* your code here */
 }
 
-.meme > img {
-  width: 100%;
-}
-
 .emoji {
   font-size: 3rem;
   position: absolute;
@@ -28,15 +24,16 @@
   -webkit-text-stroke: 1px black;
   text-transform: uppercase;
   position: absolute;
-  top: 50%;
+  bottom: 5%;
 
   /* your code here */
 }
 
 .overlay {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
-  position: relative;
+  position: absolute;
   height: 100%;
+  width: 100%;
 
   /* your code here */
 }
