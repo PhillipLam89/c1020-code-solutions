@@ -1,0 +1,51 @@
+* {
+  color: black;
+  font-weight: lighter;
+  font-family: sans-serif;
+  line-height: 1.5rem;
+}
+
+p {
+  color: grey;
+  font-weight: 600;
+}
+
+.row1 {
+  text-align: center;
+  width: 100%;
+}
+
+.row-half {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-all {
+  height: 1200px;
+  margin: 5px;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  height: 50%;
+}
+
+.column-full {
+  text-align: center;
+}
+
+.button {
+  width: 200%;
+  background-color: white;
+  color: red;
+  border: 3px solid red;
+}
+
+.row4 {
+  display: flex;
+  justify-content: center;
+}
