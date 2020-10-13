@@ -12,7 +12,6 @@ function getArea(width, height) {
   return (width * height);
 }
 console.log('Area is equal to: ', getArea(17, 42) + ' units squared.');
-
 var person = {
   firstName: 'Phillip',
   lastName: 'Lam'
