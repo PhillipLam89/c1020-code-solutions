@@ -8,7 +8,7 @@ var orderHistory = [
     orderNumber: '114-394'
   },
   {
-    itemNames: ['The Timless Way of Building'],
+    itemNames: ['The Timeless Way of Building'],
     type: ['book'],
     returnDeadline: 'August 19, 2020',
     orderNumber: '113-998'
@@ -20,7 +20,7 @@ var orderHistory = [
     orderNumber: '114-287'
   },
   {
-    itemNames: ['Gamecube Controler for Smash', 'The art of SQL'],
+    itemNames: ['Gamecube Controller for Smash', 'The art of SQL'],
     type: ['game acessories', 'book'],
     returnDeadline: ['August 4, 2020', 'August 4, 2020'],
     orderNumber: '113-288'
