@@ -18,7 +18,6 @@ var person = {
   lastName: 'Lam'
 };
 function getFirstName(person) {
-
   return (person.firstName);
 }
 console.log('First name is: ', getFirstName(person));
