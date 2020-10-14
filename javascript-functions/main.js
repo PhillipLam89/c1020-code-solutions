@@ -22,8 +22,9 @@ function getFirstName(person) {
 console.log('First name is: ', getFirstName(person));
 
 var array = ['propane', 'and', 'propane', 'accessories'];
-var lastIndex = array.length - 1;
+
 function getLastElement(array) {
+  var lastIndex = array.length - 1;
   return (array[lastIndex]);
 }
 console.log('The value of the last array index is:', getLastElement(array));
