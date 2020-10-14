@@ -2,8 +2,9 @@ body {
   text-align: center;
   background-color: rgb(224, 228, 231);
   margin: 0;
-  width: 90%;
-  height: 100vh;
+  width: 1200px;
+  height: auto;
+  border: 3px solid black;
 }
 
 * {
@@ -11,12 +12,19 @@ body {
 }
 
 .icons > img {
-  width: 30%;
+  width: 20%;
+}
+
+.phone-pics > img {
+  width: 60%;
+  margin: 0;
+  padding: 0;
 }
 
 #container {
+  border: 4px solid red;
   display: flex;
-  justify-content: space-around;
+  width: auto;
 }
 
 #container2 {
