@@ -8,43 +8,48 @@
  */
 
 function getNumbersToTen() {
+  var i = 1;
   var numbers = [];
   var currentNumber = 1;
-  for (var i = 1; i < 11; i++) {
+  while (i < 11) {
     numbers.push(currentNumber);
     currentNumber += 1;
+    i++;
   }
   return numbers;
 }
-console.log(getNumbersToTen());
+console.log('numbers 1 to 10', getNumbersToTen());
 
 function getEvenNumbersToTwenty() {
-  var evenNumbers = [];
+  var i = 2;
+  var numbers = [];
   var currentNumber = 2;
-  for (var i = 2; i < 21; i = i + 2) {
-    evenNumbers.push(currentNumber);
+  while (i < 21) {
+    numbers.push(currentNumber);
     currentNumber += 2;
+    i = i + 2;
   }
-  return evenNumbers;
+  return numbers;
 }
-console.log(getEvenNumbersToTwenty());
+console.log('Even numbers 2 to 20', getEvenNumbersToTwenty());
 
 function repeatWord(word, times) {
   var count = 1;
   var repeated = '';
-  for (var i = count; i < times + 1; i++) {
+  while (count < times + 1) {
     repeated += ' ' + word;
     count += 1;
+    count++;
   }
   return repeated;
 }
-console.log(repeatWord('hello', 15));
+console.log('Repeat function:', repeatWord('JAVASCRIPTTT', 15));
 
 function logEachCharacter(string) {
   var final = '';
   for (var i = 0; i < string.length; i++) {
     (final = string[i]);
-    console.log(final);
+    console.log('Log each char of string:', final);
   }
 }
 logEachCharacter('hDSFN');
@@ -62,7 +67,6 @@ var num1 = [2, 4, 6, 7];
 console.log('doubled array:', doubleAll(num1));
 
 var object = { aa: 113, zz: 'boo', bb: '33' };
-
 function getKeys(object) {
   var keys = [];
   for (var property in object) {
