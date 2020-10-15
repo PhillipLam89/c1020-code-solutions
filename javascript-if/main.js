@@ -57,11 +57,9 @@ function categorizeAcidity(pH) {
 
   if (pH === 7) {
     return 'neutral';
-  }
-  if (pH >= 0 && pH < 7) {
+  } else if (pH >= 0 && pH < 7) {
     return 'acid';
-  }
-  if (pH > 7 && pH <= 14) {
+  } else if (pH > 7 && pH <= 14) {
     return 'base';
   } else {
     return 'invalid pH level';
@@ -71,8 +69,7 @@ function categorizeAcidity(pH) {
 function introduceWarnerBro(name) {
   if (name === 'yakko' || name === 'wakko') {
     return "We're the warner Brothers!";
-  }
-  if (name === 'dot') {
+  } else if (name === 'dot') {
     return "I'm cute~";
   } else {
     return 'Good night everybody!';
