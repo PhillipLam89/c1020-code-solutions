@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  width: 1200px;
+}
+
+img {
+  height: 250px;
+  width: 200px;
+}
+
+#wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container1 {
+  width: 18%;
+}
+
+.size {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.size-top {
+  color: gray;
+}
