@@ -39,11 +39,10 @@ function repeatWord(word, times) {
   while (count < times + 1) {
     repeated += ' ' + word;
     count += 1;
-    count++;
   }
   return repeated;
 }
-console.log('Repeat function:', repeatWord('JAVASCRIPTTT', 15));
+console.log('Repeat function:', repeatWord('JAVASCRIPTTT', 22));
 
 function logEachCharacter(string) {
   var final = '';
