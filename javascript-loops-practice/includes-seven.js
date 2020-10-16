@@ -1,13 +1,7 @@
 /* exported includesSeven */
 function includesSeven(array) {
-  if (array.length === 0) return false;
-  var arr = [];
   for (var i = 0; i < array.length; i++) {
-    arr.push(array[i]);
+    if (array[i] === 7) return true;
   }
-  for (var j = 0; j < arr.length; j++) {
-    if (arr[j] === 7) return true;
-    else if (typeof arr[j] !== 'number') return false;
-  }
-  return arr;
+  return false;
 }
