@@ -6,6 +6,7 @@ body {
   margin: 0;
   text-align: center;
   width: 1200px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 img {
@@ -16,11 +17,11 @@ img {
 #wrapper {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .container1 {
-  width: 18%;
+  width: 20%;
 }
 
 .size {
@@ -30,4 +31,42 @@ img {
 
 .size-top {
   color: gray;
+}
+
+.dollar {
+  background-color: rgb(253, 238, 240);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.dress2 {
+  padding-right: 4rem;
+}
+
+.cost-item-1 {
+  padding-right: 2rem;
+}
+
+.cost-item-2 {
+  padding-right: 5rem;
+}
+
+.cost-item-3 {
+  padding-right: 4rem;
+}
+
+.cost-item-4 {
+  padding-right: 6.5rem;
+}
+
+.tiffany {
+  padding-right: 4rem;
+}
+
+.LV {
+  padding-right: 2rem;
+}
+
+.LV-2 {
+  padding-right: 100px;
 }
