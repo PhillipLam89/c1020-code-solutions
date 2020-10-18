@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 function takeRight(array, count) {
-  if (count >= array.length) {
+  if (count > array.length) {
     return [];
   }
   var finalArray = [];
