@@ -4,7 +4,7 @@ var clickCount = document.querySelector('.click-count');
 
 button.addEventListener('click', function () {
   timesClicked++;
-  clickCount.textContent = 'Clicks: ' + timesClicked;
+  clickCount.textContent = 'Clicks:  ' + timesClicked;
   if (timesClicked < 4) {
     button.className = 'hot-button cold';
   } else if (timesClicked < 7) {
