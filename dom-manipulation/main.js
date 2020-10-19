@@ -6,14 +6,14 @@ button.addEventListener('click', function () {
   timesClicked++;
   clickCount.textContent = 'Clicks: ' + timesClicked;
   if (timesClicked < 4) {
-    clickCount.className = 'cold';
+    button.className = 'hot-button cold';
   } else if (timesClicked < 7) {
-    clickCount.className = 'cool';
+    button.className = 'hot-button cool';
   } else if (timesClicked < 10) {
-    clickCount.className = 'tepid';
+    button.className = 'hot-button tepid';
   } else if (timesClicked < 13) {
-    clickCount.className = 'warm';
+    button.className = 'hot-button warm';
   } else if (timesClicked < 16) {
-    clickCount.className = 'hot';
-  } else clickCount.className = 'nuclear';
+    button.className = 'hot-button hot';
+  } else button.className = 'hot-button nuclear';
 });
