@@ -1,0 +1,45 @@
+body {
+  margin: 0 auto;
+}
+
+button {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: yellow;
+}
+
+button:active {
+  transform: translateY(1rem);
+}
+
+.container {
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(243, 237, 237);
+}
+
+.lights-on {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: yellow;
+}
+
+.lights-off {
+  box-shadow: 2px -10px 5px rgb(49, 48, 48);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.container-off {
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
