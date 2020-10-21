@@ -1,21 +1,18 @@
 var $phrase = document.querySelectorAll('span');
 var counter = 0;
 var wrongCount = 0;
-var $result = document.querySelector('h1');
+var $result = document.querySelector('.result');
+var $wrong = document.querySelector('.wrong-count');
+
 document.querySelector('html').addEventListener('keydown', function (e) {
   if (e.key === $phrase[counter].textContent) {
-    $phrase[counter].className = 'green has-underline';
-    // $phrase[counter+1].className = ''
+    $phrase[counter].className = 'green';
+    $phrase[counter + 1].className = 'has-underline';
     counter++;
-  }
-  if (counter === 30) {
-    $result.innerHTML = 'YOUR TYPING ACCURACY IS: ' + (100 * (counter / (counter + wrongCount))).toFixed(2) + '%';
-    counter = -1;
-    return true;
-  } else {
+    $result.textContent = 'Letters Typed Correctly: ' + counter;
+  } else if (e.key !== $phrase[counter].textContent) {
     $phrase[counter].className = 'red';
-    $phrase[counter].className = 'umpyuiuuuuured has-underline';
     wrongCount++;
+    $wrong.textContent = 'Letters Typed Wrong: ' + wrongCount;
   }
-
 });
