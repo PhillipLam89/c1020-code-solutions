@@ -18,7 +18,7 @@ document.querySelector('html').addEventListener('keydown', function (e) {
     wrongCount++;
     $wrong.textContent = 'Letters Typed Wrong: ' + wrongCount;
   } else if (counter === 29) {
-    $phrase[29].className = 'green';
+    $phrase[29].className = 'greeen';
     $percent.textContent = 'Your accuracy is: ' + ((counter) / (counter + wrongCount)).toFixed(2) * 100 + '%';
   }
 });
