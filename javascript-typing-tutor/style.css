@@ -1,6 +1,9 @@
 body {
   margin: 0 auto;
+  width: 100%;
+  height: auto;
   background-color: lightgoldenrodyellow;
+  border: 3px solid purple;
 }
 
 .sentence {
@@ -50,5 +53,16 @@ body {
 
 .invisible {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 5px solid black;
+  width: 100%;
+  height: 150px;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+}
 }
