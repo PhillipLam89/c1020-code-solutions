@@ -14,8 +14,7 @@ $tabContainer.addEventListener('click', function (event) {
 
   for (var j = 0; j < $viewNode.length; j++) {
     if ($viewNode[j].getAttribute('data-view') === dataViewValues) {
-      $viewNode[j].className = 'active';
-    } else $viewNode[j].className = 'hidden';
+      $viewNode[j].className = ' view active';
+    } else $viewNode[j].className = 'view hidden';
   }
-
 });
