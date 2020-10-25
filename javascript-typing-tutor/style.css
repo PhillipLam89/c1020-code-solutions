@@ -2,7 +2,7 @@ body {
   margin: 0 auto;
   width: 100%;
   height: auto;
-  background-color: lightgoldenrodyellow;
+  background-color: rgb(218, 218, 73);
 }
 
 .sentence {
@@ -37,6 +37,15 @@ body {
 
 .red {
   color: red;
+  animation: blinkingBackground 2s infinite;
+}
+
+@keyframes blinkingBackground {
+  0% { background-color: #bd5c4b; }
+  25% { background-color: #1056c0; }
+  50% { background-color: #bd5c4b; }
+  75% { background-color: #1056c0; }
+  100% { background-color: #bd5c4b; }
 }
 
 .result,

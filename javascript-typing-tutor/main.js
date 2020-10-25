@@ -7,6 +7,7 @@ var $wrong = document.querySelector('.wrong-count');
 var $percent = document.querySelector('.percentage');
 var $container = document.querySelector('.container');
 var $done = document.querySelector('.invisible');
+
 document.querySelector('html').addEventListener('keydown', function (e) {
   if (e.key === $phrase[counter].textContent && counter < 30 && underlinePosition <= 29) {
     $phrase[counter].className = 'green';
@@ -18,7 +19,7 @@ document.querySelector('html').addEventListener('keydown', function (e) {
     $phrase[counter].className = 'red';
     wrongCount++;
     $wrong.textContent = 'Letters Typed Wrong: ' + wrongCount;
-  } else if (counter === $phrase.length - 1) {
+  } else if (counter === $phrase.length - 1) { // this signals user completing the phrase
     $phrase[$phrase.length - 1].className = 'green';
     $percent.textContent = 'Your accuracy is: ' + ((counter) / (counter + wrongCount)).toFixed(2) * 100 + '%';
     $container.className = 'container-see-through';
