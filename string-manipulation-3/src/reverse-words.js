@@ -1,29 +1,17 @@
 /* eslint-disable no-unused-vars */
+
 // function reverseWords(string) {
-//   function reverseString(string) {
-//   var final = ''
-//   var lastIndex = string.length - 1
+//   var reversedSection = '';
+//   var output = '';
+//   var lastIndex = string.length - 1;
 //   for (var i = lastIndex; i > -1; i--) {
-//     final += string[i]
+//     if (string[i] !== ' ') {
+//       reversedSection += string[i];
+//     } else {
+//       output = ' ' + reversedSection + output;   // as we iterate backwards from the string, each complete word will be put in reversed form, when it hits a space,  the complete word after that will be placed IN FRONT of the previous word with a space.
+//       reversedSection = '';
+//     }
 //   }
-//   console.log(final)
-//   return final
-//   }
-
-//  var arr = Array.from(string)
-//  console.log('arr:', arr)
-
+//   var finalString = reversedSection + output
+//   return finalString
 // }
-function reverseWords(input) {
-  var word = ''; var output = '';
-  var lastIndex = input.length - 1;
-  for (var i = lastIndex; i > -1; i--) {
-    if (input[i] !== ' ') {
-      word += input[i];
-    } else {
-      output = ' ' + word + output;
-      word = '';
-    }
-  }
-  return word + output;
-}
