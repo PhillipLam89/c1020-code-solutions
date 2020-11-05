@@ -1,6 +1,6 @@
 var $img = document.querySelector('img');
 var imagesArr = ['images/001.png', 'images/004.png', 'images/007.png', 'images/025.png', 'images/039.png'];
-var count = 1;
+var count = 1; // counts start at 1 since the default html image is index 0
 var $circularButtons = document.querySelectorAll('.dot');
 var circleCounter = 0;
 
@@ -86,13 +86,15 @@ document.addEventListener('click', function (event) {
       $circularButtons[i].setAttribute('class', 'far fa-circle dot');
     }
     event.target.className = 'fas fa-circle selected';
-    var selectedLocationIndex = 0;
+    var selectedLocationIndex = null;
     for (var j = 0; j < $circularButtons.length; j++) {
-      if ($circularButtons[j].className === 'fas fa-circle selected') { selectedLocationIndex = j; }
+      if ($circularButtons[j].className === 'fas fa-circle selected') {
+        selectedLocationIndex = j; // this will give location of which circle the user clicked
+      }
     }
     $img.setAttribute('src', imagesArr[selectedLocationIndex]);
 
-    count = selectedLocationIndex + 1;
+    count = selectedLocationIndex + 1; // + 1 because indexes start at 0
     circleCounter = selectedLocationIndex;
 
     carousel = setInterval(function () {
