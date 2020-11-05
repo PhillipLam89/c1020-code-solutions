@@ -26,21 +26,14 @@ Account.prototype.withdraw = function (amount) {
 };
 
 Account.prototype.getBalance = function () {
-  if (this.transactions.length === 0) {
-    return 0;
-  } else {
-    var totalDeposits = 0;
-    var totalWithdrawals = 0;
 
-    for (var i = 0; i < this.transactions.length; i++) {
-      if (this.transactions[i].type === 'deposit') {
-        totalDeposits += this.transactions[i].amount;
-      }
-    }
-    for (var j = 0; j < this.transactions.length; j++) {
-      if (this.transactions[j].type === 'withdrawal') {
-        totalWithdrawals += this.transactions[j].amount;
-      }
+  var totalDeposits = 0;
+  var totalWithdrawals = 0;
+  for (var i = 0; i < this.transactions.length; i++) {
+    if (this.transactions[i].type === 'deposit') {
+      totalDeposits += this.transactions[i].amount;
+    } else if (this.transactions[i].type === 'withdrawal') {
+      totalWithdrawals += this.transactions[i].amount;
     }
   }
   return totalDeposits - totalWithdrawals;
