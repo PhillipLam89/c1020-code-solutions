@@ -94,8 +94,8 @@ document.addEventListener('click', function (event) {
     }
     $img.setAttribute('src', imagesArr[selectedLocationIndex]);
 
-    count = selectedLocationIndex + 1; // + 1 because indexes start at 0
-    circleCounter = selectedLocationIndex;
+    count = selectedLocationIndex; // + 1 because indexes start at 0
+    circleCounter = selectedLocationIndex - 1;
 
     carousel = setInterval(function () {
       $img.setAttribute('src', imagesArr[count]);
