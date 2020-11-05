@@ -17,7 +17,7 @@ var carousel = setInterval(function () {
   if (count === 5) {
     count = 0;
   }
-}, 2000);
+}, 3000);
 
 document.addEventListener('click', function (event) {
   if (event.target.className === 'fas fa-chevron-right right-arrow') {
@@ -47,7 +47,7 @@ document.addEventListener('click', function (event) {
       if (count === 5) {
         count = 0;
       }
-    }, 2000);
+    }, 3000);
   }
 
   if (event.target.className === 'fas fa-chevron-left left-arrow') {
@@ -77,7 +77,7 @@ document.addEventListener('click', function (event) {
       if (count === 5) {
         count = 0;
       }
-    }, 2000);
+    }, 3000);
   }
 
   if (event.target.className === 'far fa-circle dot') {
@@ -85,13 +85,29 @@ document.addEventListener('click', function (event) {
     for (var i = 0; i < $circularButtons.length; i++) {
       $circularButtons[i].setAttribute('class', 'far fa-circle dot');
     }
-    event.target.setAttribute('class', 'fas fa-circle');
+    event.target.className = 'fas fa-circle selected';
+    var selectedLocationIndex = 0;
+    for (var j = 0; j < $circularButtons.length; j++) {
+      if ($circularButtons[j].className === 'fas fa-circle selected') { selectedLocationIndex = j; }
+    }
+    $img.setAttribute('src', imagesArr[selectedLocationIndex]);
 
+    count = selectedLocationIndex + 1;
+    circleCounter = selectedLocationIndex;
+
+    carousel = setInterval(function () {
+      $img.setAttribute('src', imagesArr[count]);
+      $circularButtons[count].setAttribute('class', 'fas fa-circle'); // filled
+      $circularButtons[circleCounter].setAttribute('class', 'far fa-circle dot'); // empty
+      count++;
+      circleCounter++;
+      if (circleCounter === 5) {
+        circleCounter = 0;
+      }
+      if (count === 5) {
+        count = 0;
+      }
+    }, 3000);
   }
+
 });
-
-// document.querySelector('.circular-buttons').addEventListener('click', function(event){
-//   if (event.target.className === 'far fa-circle dot') {
-
-//   }
-// })
