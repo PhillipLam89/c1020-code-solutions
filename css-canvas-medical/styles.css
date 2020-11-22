@@ -58,7 +58,6 @@ p > a {
 }
 
 .header-items {
-  padding-top: 1%;
   border-bottom: 1px solid grey;
   font-weight: lighter;
 }
@@ -71,19 +70,26 @@ p > a {
 }
 
 .wrapper {
+  padding-bottom: 1.5rem;
   display: flex;
   justify-content: space-around;
+  align-items: flex-end;
   right: 10px;
   width: 1200px;
   bottom: 30px;
 }
 
 .contact {
+  transform: translateY(0.5rem);
   background-color: rgb(35, 35, 126);
   color: white;
   border-radius: 5%;
   width: 110px;
   height: 2rem;
+}
+
+button {
+  cursor: pointer;
 }
 
 #container2 {
@@ -97,7 +103,6 @@ p > a {
 .heading-1 {
   left: 5.5rem;
   top: 2rem;
-  color: white;
   font-weight: bolder;
   line-height: 0.5rem;
   opacity: inherit;
@@ -105,6 +110,10 @@ p > a {
 }
 
 #text-wrapper {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: flex-start;
   position: absolute;
   left: 5rem;
   bottom: 2%;
@@ -113,22 +122,17 @@ p > a {
 
 .paragraph {
   width: 40%;
-  color: white;
   text-align: left;
-  font-weight: bold;
-  line-height: 1.6rem;
+  font-size: 1.1rem;
+  line-height: 2rem;
 }
 
 .get-started-button {
-  left: 9%;
-  float: left;
-  bottom: 10%;
   height: 3rem;
   width: 180px;
   border-radius: 5%;
   color: white;
   background-color: rgb(35, 35, 126);
-  margin-left: auto;
   margin-top: 2rem;
 }
 
@@ -198,7 +202,7 @@ p > a {
 
 .canvas-white-logo {
   width: 75%;
-  margin-bottom: 8%;
+  padding-bottom: 2.5rem;
 }
 
 #container6 {
@@ -223,6 +227,7 @@ p > a {
   color: whitesmoke;
   font-weight: bold;
   line-height: 1.8rem;
+  text-align: left;
 }
 
 #container7 {
