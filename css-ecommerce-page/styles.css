@@ -1,72 +1,60 @@
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  text-align: center;
-  width: 1200px;
   font-family: 'DM Sans', sans-serif;
 }
 
+h1 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 13px;
+}
+
 img {
-  height: 250px;
-  width: 200px;
-}
-
-#wrapper {
   width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
-.container1 {
-  width: 20%;
+span,
+s {
+  color: lightgray;
+  font-weight: bolder;
+  font-size: 13px;
 }
 
-.size {
-  color: gray;
+.strike {
   text-decoration: line-through;
 }
 
-.size-top {
-  color: gray;
-}
-
-.dollar {
-  background-color: rgb(253, 238, 240);
+.price {
+  font-size: 13px;
   font-weight: bold;
-  font-size: 12px;
+  color: black;
+  background-color: #f3ddcc;
 }
 
-.dollar20 {
-  margin-left: 2rem;
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.cost-item-1 {
-  padding-right: 2rem;
+.details {
+  text-align: left;
 }
 
-.cost-item-2 {
-  padding-right: 5rem;
+.row-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.cost-item-3 {
-  padding-right: 4rem;
-}
-
-.cost-item-4 {
-  padding-right: 6.5rem;
-}
-
-.tiffany {
-  padding-right: 4rem;
-}
-
-.LV {
-  padding-right: 2rem;
-}
-
-.LV-2 {
-  padding-right: 100px;
+.column {
+  flex-basis: 20%;
+  padding: 1%;
 }
