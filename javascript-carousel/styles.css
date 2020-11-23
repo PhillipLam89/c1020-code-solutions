@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.chevron {
+  margin: auto;
+  width: 50%;
+  padding: 1rem;
+}
+
+.right-arrow {
+  float: right;
+}
+
+.left-arrow,
+.right-arrow {
+  transform: scale(3);
+}
+
+.left-arrow:active,
+.right-arrow:active {
+  transform: translateX(0.5rem) scale(3);
+  color: royalblue;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.circular-buttons {
+  width: 100%;
+  text-align: center;
+}
