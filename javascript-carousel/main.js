@@ -25,7 +25,7 @@ document.addEventListener('click', function(event){
     clearInterval(carousel)
     $circularButtons[count].className = 'empty far fa-circle'
     count--
-    count < 0 ? count = imagesArr.length - 1 : count = count
+    count < 0 ? count = imagesArr.length - 1 : count
     $img.setAttribute('src', imagesArr[count]);
     $circularButtons[count].className = 'filled fas fa-circle'
     carousel = setInterval(displayHelper, 3000)
