@@ -12,7 +12,7 @@ function displayHelper() {
   }
 }
 
-document.addEventListener('click', function(event){
+function arrowIsClicked() {
   if (event.target.className === 'fas fa-chevron-right right-arrow') {
     clearInterval(carousel)
     $circularButtons[count].className = 'empty far fa-circle'
@@ -29,6 +29,15 @@ document.addEventListener('click', function(event){
     $img.setAttribute('src', imagesArr[count]);
     $circularButtons[count].className = 'filled fas fa-circle'
     carousel = setInterval(displayHelper, 3000)
+  }
+}
+
+document.addEventListener('click', function(event){
+  if (event.target.className === 'fas fa-chevron-right right-arrow') {
+    arrowIsClicked()
+  }
+  else if (event.target.className === 'fas fa-chevron-left left-arrow') {
+    arrowIsClicked()
   }
   else if (event.target.className === 'filled fas fa-circle' || event.target.className === 'empty far fa-circle' ) {
     clearInterval(carousel);
