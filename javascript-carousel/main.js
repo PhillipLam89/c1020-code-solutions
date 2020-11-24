@@ -36,14 +36,12 @@ document.addEventListener('click', function(event){
       $circularButtons[j].setAttribute('class', 'empty far fa-circle');
     }
     event.target.className = 'filled fas fa-circle';
-    let selectedLocationIndex = null;
     for (let k = 0; k < $circularButtons.length; k++) {
       if ($circularButtons[k].className === 'filled fas fa-circle') {
-        selectedLocationIndex = k; // this will give location of which circle the user clicked
+        count = k; // this will give location of which circle the user clicked
       }
     }
-    count = selectedLocationIndex
-    $img.setAttribute('src', imagesArr[selectedLocationIndex]);
+    $img.setAttribute('src', imagesArr[count]);
     carousel = setInterval(displayHelper, 3000)
   }
 })
