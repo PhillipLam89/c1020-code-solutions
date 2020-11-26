@@ -10,8 +10,8 @@ else if (process.argv[2] === 'create') {
   for (let key in json.notes) {
     count++
   }
-  json.notes[count + 2] = process.argv[3]
-  fs.writeFile('data.json', JSON.stringify(json, null, 2), 'utf8', () => console.log(`data.json updated, you now have ${count + 2} notes.`));
+  json.notes[count + 1] = process.argv[3]
+  fs.writeFile('data.json', JSON.stringify(json, null, 2), 'utf8', () => console.log(`data.json updated, you now have ${count + 1} notes.`));
 }
 else if (process.argv[2] === 'delete') {
   delete json.notes[process.argv[3]]
