@@ -1,52 +1,78 @@
 /* global _ */
 /* eslint-disable no-console */
 
-const players = [{ name: 'Phillip', hand: [] }, { name: 'Cody', hand: [] }, { name: 'Uzair', hand: [] }, { name: 'Brett', hand: [] }];
+const currentPlayers = [{ name: 'Phillip', hand: [] }, { name: 'Cody', hand: [] }, { name: 'Uzair', hand: [] }, { name: 'Brett', hand: [] }];
 const deck = [];
 const cardRanks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
-for (const val of cardRanks) {
-  deck.push({ rank: val }, { rank: val }, { rank: val }, { rank: val });
-}
-for (let i = 0; i < deck.length; i = i + 4) {
-  deck[i].suit = 'clubs';
-}
-for (let i = 1; i < deck.length; i = i + 4) {
-  deck[i].suit = 'diamonds';
-}
-for (let i = 2; i < deck.length; i = i + 4) {
-  deck[i].suit = 'hearts';
-}
-for (let i = 3; i < deck.length; i = i + 4) {
-  deck[i].suit = 'spades';
-}
-for (let i = 0; i < deck.length; i++) {
-  if (deck[i].rank === 'A') deck[i].points = 11;
-  else if (deck[i].rank === '2') deck[i].points = 2;
-  else if (deck[i].rank === '3') deck[i].points = 3;
-  else if (deck[i].rank === '4') deck[i].points = 4;
-  else if (deck[i].rank === '5') deck[i].points = 5;
-  else if (deck[i].rank === '6') deck[i].points = 6;
-  else if (deck[i].rank === '7') deck[i].points = 7;
-  else if (deck[i].rank === '8') deck[i].points = 8;
-  else if (deck[i].rank === '9') deck[i].points = 9;
-  else if (deck[i].rank === '10' || deck[i].rank === 'J' || deck[i].rank === 'Q' || deck[i].rank === 'K') deck[i].points = 10;
+startGame(currentPlayers)
+
+
+function addNewPlayer(playerName) {
+  currentPlayers.push({name: playerName, hand: []})
+  return `Player ${playerName} added to the Current Players' roster!`
 }
 
-const shuffledDeck = _.shuffle(deck);
-let player1Points = 0;
-let player2Points = 0;
-let player3Points = 0;
-let player4Points = 0;
+function startGame(arrayOfPlayers, cardsPerHand = 2) {
+  if (arrayOfPlayers.length < 2 || arrayOfPlayers.length > 8 || cardsPerHand > 6) return 'must be at least 2 players|max 8 players. 6 cards MAX per hand'
 
-for (let i = 0; i < players.length; i++) {
-  players[i].hand.push(_.pullAt(shuffledDeck, [0, 1]));
-  players[i].hand = players[i].hand.flat();
+  for (const val of cardRanks) {
+    deck.push({ rank: val }, { rank: val }, { rank: val }, { rank: val });
+  }
+  for (let i = 0; i < deck.length; i = i + 4) {
+    deck[i].suit = 'clubs';
+  }
+  for (let i = 1; i < deck.length; i = i + 4) {
+    deck[i].suit = 'diamonds';
+  }
+  for (let i = 2; i < deck.length; i = i + 4) {
+    deck[i].suit = 'hearts';
+  }
+  for (let i = 3; i < deck.length; i = i + 4) {
+    deck[i].suit = 'spades';
+  }
+  for (let i = 0; i < deck.length; i++) {
+    if (deck[i].rank === 'A') deck[i].points = 11;
+    else if (deck[i].rank === '2') deck[i].points = 2;
+    else if (deck[i].rank === '3') deck[i].points = 3;
+    else if (deck[i].rank === '4') deck[i].points = 4;
+    else if (deck[i].rank === '5') deck[i].points = 5;
+    else if (deck[i].rank === '6') deck[i].points = 6;
+    else if (deck[i].rank === '7') deck[i].points = 7;
+    else if (deck[i].rank === '8') deck[i].points = 8;
+    else if (deck[i].rank === '9') deck[i].points = 9;
+    else deck[i].points = 10
+  }
+
+  const shuffledDeck = _.shuffle(deck);
+  const arr = []
+  let IndexOfmaxScore = 0
+  const maxPlayers = arrayOfPlayers.length
+  for (let i = 0; i < arrayOfPlayers.length; i++) {
+
+    arrayOfPlayers[i].hand.push(shuffledDeck.splice(0, cardsPerHand));
+    arrayOfPlayers[i].hand = arrayOfPlayers[i].hand.flat();
+    arrayOfPlayers[i].total = 0
+    for (let j = 0; j < cardsPerHand; j ++ ) {
+      arrayOfPlayers[i].total += arrayOfPlayers[i].hand[j].points
+    }
+
+    arr.push(arrayOfPlayers[i].total)
+  }
+  const IndexOfMaxScore = arr.indexOf(Math.max(...arr))
+  let winningHand = ''
+  console.log(`The winner is ${arrayOfPlayers[IndexOfMaxScore].name}! With a total of ${arrayOfPlayers[IndexOfMaxScore].total} points. `)
+  for (let val of arrayOfPlayers[IndexOfMaxScore].hand ) {
+    winningHand += ' |' + val.rank + ' of ' + val.suit + '|'
+  }
+  console.log(`Winning hand: ${winningHand}.`);
+  winningHand = ''
+  const participantsList = []
+  for (let i = 0; i < arrayOfPlayers.length;i++) {
+    participantsList.push(arrayOfPlayers[i].name)
+    console.log('Hand Dealt:', arrayOfPlayers[i].name , arrayOfPlayers[i].hand)
+    arrayOfPlayers[i].hand = []
+  }
+  console.log(`Participants: ${participantsList.join(', ')}`)
+  console.log(`All players' hands have been resetted`)
 }
-player1Points = players[0].hand[0].points + players[0].hand[1].points;
-player2Points = players[1].hand[0].points + players[1].hand[1].points;
-player3Points = players[2].hand[0].points + players[2].hand[1].points;
-player4Points = players[3].hand[0].points + players[3].hand[1].points;
-const pointsCollection = [player1Points, player2Points, player3Points, player4Points];
-const gameWinnerIndex = pointsCollection.indexOf(Math.max(...pointsCollection));
-console.log(`Player ${gameWinnerIndex + 1}, ${players[gameWinnerIndex].name} is the winner with a total of ${pointsCollection[gameWinnerIndex]} points! beating ${players.length - 1} other players with a ${players[gameWinnerIndex].hand[0].rank} of ${players[gameWinnerIndex].hand[0].suit} and a ${players[gameWinnerIndex].hand[1].rank} of ${players[gameWinnerIndex].hand[1].suit}.`);
