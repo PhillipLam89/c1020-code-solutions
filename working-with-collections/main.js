@@ -1,217 +1,52 @@
 /* global _ */
 /* eslint-disable no-console */
-// console.log('Lodash is loaded:', typeof _ !== 'undefined');
 
+const players = [{ name: 'Phillip', hand: [] }, { name: 'Cody', hand: [] }, { name: 'Uzair', hand: [] }, { name: 'Brett', hand: [] }];
+const deck = [];
+const cardRanks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
-// var deck = [
-//   {
-//     rank: 'A',
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 'K',
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 'Q',
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 'J',
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 10,
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 9,
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 8,
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 7,
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 6,
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 5,
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 4,
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 3,
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 2,
-//     suit: 'Clubs'
-//   },
-//   {
-//     rank: 'A',
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 'K',
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 'Q',
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 'J',
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 10,
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 9,
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 8,
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 7,
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 6,
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 5,
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 4,
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 3,
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 2,
-//     suit: 'Spades'
-//   },
-//   {
-//     rank: 'A',
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 'K',
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 'Q',
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 'J',
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 10,
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 9,
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 8,
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 7,
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 6,
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 5,
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 4,
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 3,
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 2,
-//     suit: 'Hearts'
-//   },
-//   {
-//     rank: 'A',
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 'K',
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 'Q',
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 'J',
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 10,
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 9,
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 8,
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 7,
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 6,
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 5,
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 4,
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 3,
-//     suit: 'Diamonds'
-//   },
-//   {
-//     rank: 2,
-//     suit: 'Diamonds'
-//   }
-// ];
+for (const val of cardRanks) {
+  deck.push({ rank: val }, { rank: val }, { rank: val }, { rank: val });
+}
+for (let i = 0; i < deck.length; i = i + 4) {
+  deck[i].suit = 'clubs';
+}
+for (let i = 1; i < deck.length; i = i + 4) {
+  deck[i].suit = 'diamonds';
+}
+for (let i = 2; i < deck.length; i = i + 4) {
+  deck[i].suit = 'hearts';
+}
+for (let i = 3; i < deck.length; i = i + 4) {
+  deck[i].suit = 'spades';
+}
+for (let i = 0; i < deck.length; i++) {
+  if (deck[i].rank === 'A') deck[i].points = 11;
+  else if (deck[i].rank === '2') deck[i].points = 2;
+  else if (deck[i].rank === '3') deck[i].points = 3;
+  else if (deck[i].rank === '4') deck[i].points = 4;
+  else if (deck[i].rank === '5') deck[i].points = 5;
+  else if (deck[i].rank === '6') deck[i].points = 6;
+  else if (deck[i].rank === '7') deck[i].points = 7;
+  else if (deck[i].rank === '8') deck[i].points = 8;
+  else if (deck[i].rank === '9') deck[i].points = 9;
+  else if (deck[i].rank === '10' || deck[i].rank === 'J' || deck[i].rank === 'Q' || deck[i].rank === 'K') deck[i].points = 10;
+}
 
-// var players = [{ name: 'Phillip', hand: [] }, { name: 'Cody', hand: [] }, { name: 'Uzair', hand: [] }, { name: 'Brett', hand: [] }]
+const shuffledDeck = _.shuffle(deck);
+let player1Points = 0;
+let player2Points = 0;
+let player3Points = 0;
+let player4Points = 0;
+
+for (let i = 0; i < players.length; i++) {
+  players[i].hand.push(_.pullAt(shuffledDeck, [0, 1]));
+  players[i].hand = players[i].hand.flat();
+}
+player1Points = players[0].hand[0].points + players[0].hand[1].points;
+player2Points = players[1].hand[0].points + players[1].hand[1].points;
+player3Points = players[2].hand[0].points + players[2].hand[1].points;
+player4Points = players[3].hand[0].points + players[3].hand[1].points;
+const pointsCollection = [player1Points, player2Points, player3Points, player4Points];
+const gameWinnerIndex = pointsCollection.indexOf(Math.max(...pointsCollection));
+console.log(`Player ${gameWinnerIndex + 1}, ${players[gameWinnerIndex].name} is the winner with a total of ${pointsCollection[gameWinnerIndex]} points! beating ${players.length - 1} other players with a ${players[gameWinnerIndex].hand[0].rank} of ${players[gameWinnerIndex].hand[0].suit} and a ${players[gameWinnerIndex].hand[1].rank} of ${players[gameWinnerIndex].hand[1].suit}.`);
