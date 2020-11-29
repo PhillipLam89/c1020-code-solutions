@@ -5,12 +5,21 @@ const currentPlayers = [{ name: 'Phillip', hand: [] }, { name: 'Cody', hand: [] 
 const deck = [];
 const cardRanks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
-startGame(currentPlayers)
+startGame(currentPlayers,3) //takes into account length of currentPlayers (2-to-8 players), the 2nd parameter sets numbers of card dealt each hand, maximum is 6.
 
 
 function addNewPlayer(playerName) {
   currentPlayers.push({name: playerName, hand: []})
   return `Player ${playerName} added to the Current Players' roster!`
+}
+function removePlayer(playerName) {
+  for (let i = 0; i < currentPlayers.length; i++) {
+    if (currentPlayers[i].name.toLowerCase() === playerName.toLowerCase()) {
+        currentPlayers.splice(i,1)
+      return `Player ${playerName} has been removed from the roster!`
+    }
+  }
+  return `Player ${playerName} not found on current roster...`
 }
 
 function startGame(arrayOfPlayers, cardsPerHand = 2) {
@@ -61,7 +70,7 @@ function startGame(arrayOfPlayers, cardsPerHand = 2) {
   }
   const IndexOfMaxScore = arr.indexOf(Math.max(...arr))
   let winningHand = ''
-  console.log(`The winner is ${arrayOfPlayers[IndexOfMaxScore].name}! With a total of ${arrayOfPlayers[IndexOfMaxScore].total} points. `)
+  console.log(`The winner is ${arrayOfPlayers[IndexOfMaxScore].name.toUpperCase()}! With a total of ${arrayOfPlayers[IndexOfMaxScore].total} points. `)
   for (let val of arrayOfPlayers[IndexOfMaxScore].hand ) {
     winningHand += ' |' + val.rank + ' of ' + val.suit + '|'
   }
@@ -75,4 +84,5 @@ function startGame(arrayOfPlayers, cardsPerHand = 2) {
   }
   console.log(`Participants: ${participantsList.join(', ')}`)
   console.log(`All players' hands have been resetted`)
-}
+  console.log(`Create a new player by typing addNewPlayer(playerNameHere), or delete a player with removePlayer(playerNameHere) then/or start a new game by typing startGame(currentPlayers, numbersOfCardsEachHand)`)
+  }
