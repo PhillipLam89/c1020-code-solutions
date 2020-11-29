@@ -12,6 +12,7 @@ function addNewPlayer(playerName) {
   currentPlayers.push({name: playerName, hand: []})
   return `Player ${playerName} added to the Current Players' roster!`
 }
+
 function removePlayer(playerName) {
   for (let i = 0; i < currentPlayers.length; i++) {
     if (currentPlayers[i].name.toLowerCase() === playerName.toLowerCase()) {
@@ -22,9 +23,24 @@ function removePlayer(playerName) {
   return `Player ${playerName} not found on current roster...`
 }
 
-function startGame(arrayOfPlayers, cardsPerHand = 2) {
-  if (arrayOfPlayers.length < 2 || arrayOfPlayers.length > 8 || cardsPerHand > 6) return 'must be at least 2 players|max 8 players. 6 cards MAX per hand'
+function indexesOfMaxScores(arr) {
+  const maxValue = Math.max(...arr);
+  const maxIndexes = [];
 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === maxValue) {
+      maxIndexes.push(i);
+    };
+  };
+  return maxIndexes;
+};
+
+function startGame(arrayOfPlayers, cardsPerHand) {
+
+  if (arrayOfPlayers.length < 2 || arrayOfPlayers.length > 8 || cardsPerHand > 6) return 'must be at least 2 players|max 8 players. 6 cards MAX per hand'
+  for (let i = 0; i < arrayOfPlayers.length; i++) {
+    arrayOfPlayers[i].hand = []
+  }
   for (const val of cardRanks) {
     deck.push({ rank: val }, { rank: val }, { rank: val }, { rank: val });
   }
@@ -55,8 +71,6 @@ function startGame(arrayOfPlayers, cardsPerHand = 2) {
 
   const shuffledDeck = _.shuffle(deck);
   const arr = []
-  let IndexOfmaxScore = 0
-  const maxPlayers = arrayOfPlayers.length
   for (let i = 0; i < arrayOfPlayers.length; i++) {
 
     arrayOfPlayers[i].hand.push(shuffledDeck.splice(0, cardsPerHand));
@@ -68,8 +82,30 @@ function startGame(arrayOfPlayers, cardsPerHand = 2) {
 
     arr.push(arrayOfPlayers[i].total)
   }
+
   const IndexOfMaxScore = arr.indexOf(Math.max(...arr))
+  const maxScore = Math.max(...arr)
+  const arrayOfMaxScores = indexesOfMaxScores(arr)
+
+
+  if (arrayOfMaxScores.length > 1) {
+
+    let tieMessage = ''
+    const tiedPlayers = []
+    for (let i = 0; i < arrayOfMaxScores.length; i++ ) {
+      tiedPlayers.push(arrayOfPlayers[arrayOfMaxScores[i]])
+      tieMessage += `${arrayOfPlayers[arrayOfMaxScores[i]].name} `
+    }
+    tieMessage += `are tied with ${arr[IndexOfMaxScore]} points. A tie breaker will now run... New results below.`
+    console.log(tieMessage)
+    startGame(tiedPlayers, cardsPerHand)
+    return
+  }
+
   let winningHand = ''
+
+
+
   console.log(`The winner is ${arrayOfPlayers[IndexOfMaxScore].name.toUpperCase()}! With a total of ${arrayOfPlayers[IndexOfMaxScore].total} points. `)
   for (let val of arrayOfPlayers[IndexOfMaxScore].hand ) {
     winningHand += ' |' + val.rank + ' of ' + val.suit + '|'
@@ -82,7 +118,7 @@ function startGame(arrayOfPlayers, cardsPerHand = 2) {
     console.log('Hand Dealt:', arrayOfPlayers[i].name , arrayOfPlayers[i].hand)
     arrayOfPlayers[i].hand = []
   }
-  console.log(`Participants: ${participantsList.join(', ')}`)
+  console.log(`Final Round Participants: ${participantsList.join(', ')}`)
   console.log(`All players' hands have been resetted`)
   console.log(`Create a new player by typing addNewPlayer(playerNameHere), or delete a player with removePlayer(playerNameHere) then/or start a new game by typing startGame(currentPlayers, numbersOfCardsEachHand)`)
   }
