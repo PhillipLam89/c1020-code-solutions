@@ -98,8 +98,10 @@ function startGame(arrayOfPlayers, cardsPerHand) {
       tiedPlayers.push(arrayOfPlayers[arrayOfMaxScores[i]]) // [arrayOfMaxScores[i]] allows us to identify the index of the tied players
       tieMessage += `${arrayOfPlayers[arrayOfMaxScores[i]].name} `
     }
-    tieMessage += `are tied with ${arr[IndexOfMaxScore]} points. A tie breaker will now run... New results below.`
+    tieMessage += `are tied with ${arr[IndexOfMaxScore]} points. A tie breaker will now run...`
     console.log(tieMessage)
+
+    console.log(`RESULT OF TIE BREAKER: `)
     startGame(tiedPlayers, cardsPerHand)
     return
   }
@@ -116,7 +118,7 @@ function startGame(arrayOfPlayers, cardsPerHand) {
   for (let i = 0; i < arrayOfPlayers.length;i++) {
     participantsList.push(arrayOfPlayers[i].name)
     console.log('Hand Dealt:', arrayOfPlayers[i].name , arrayOfPlayers[i].hand)
-    arrayOfPlayers[i].hand = [] //clears all hands
+    // arrayOfPlayers[i].hand = [] //clears all hands
   }
   console.log(`Final Round Participants: ${participantsList.join(', ')}`)
   console.log(`All players' hands have been resetted`)
