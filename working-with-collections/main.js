@@ -2,10 +2,11 @@
 /* eslint-disable no-console */
 
 const currentPlayers = [{ name: 'Phillip', hand: [] }, { name: 'Cody', hand: [] }, { name: 'Uzair', hand: [] }, { name: 'Brett', hand: [] }];
-const deck = [];
+let deck = [];
 const cardRanks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+const cardSuits = ['clubs','diamonds','hearts','spades']
 
-startGame(currentPlayers,3) //takes into account length of currentPlayers (2-to-8 players), the 2nd parameter sets numbers of card dealt each hand, maximum is 6.
+startGame(currentPlayers,2) //takes into account length of currentPlayers (2-to-8 players), the 2nd parameter sets numbers of card dealt each hand, maximum is 6.
 
 
 function addNewPlayer(playerName) {
@@ -39,39 +40,25 @@ function indexesOfMaxScores(arr) {
 function startGame(arrayOfPlayers, cardsPerHand) {
 
   if (arrayOfPlayers.length < 2 || arrayOfPlayers.length > 8 || cardsPerHand > 6) return 'must be at least 2 players|max 8 players. 6 cards MAX per hand'
+  deck = []
   for (let i = 0; i < arrayOfPlayers.length; i++) {
     arrayOfPlayers[i].hand = []
   }
   // the for loops below will create a proper 52 card deck without me having to type it
-  for (const val of cardRanks) {
-    deck.push({ rank: val }, { rank: val }, { rank: val }, { rank: val });
+  for (let i = 0; i< cardRanks.length; i++) {
+      for (let j = 0; j < cardSuits.length; j++) {
+        deck.push({rank: cardRanks[i], suit : cardSuits[j]})
+      }
   }
-  for (let i = 0; i < deck.length; i = i + 4) {
-    deck[i].suit = 'clubs';
-  }
-  for (let i = 1; i < deck.length; i = i + 4) {
-    deck[i].suit = 'diamonds';
-  }
-  for (let i = 2; i < deck.length; i = i + 4) {
-    deck[i].suit = 'hearts';
-  }
-  for (let i = 3; i < deck.length; i = i + 4) {
-    deck[i].suit = 'spades';
-  }
+
   for (let i = 0; i < deck.length; i++) {
     if (deck[i].rank === 'A') deck[i].points = 11;
-    else if (deck[i].rank === '2') deck[i].points = 2;
-    else if (deck[i].rank === '3') deck[i].points = 3;
-    else if (deck[i].rank === '4') deck[i].points = 4;
-    else if (deck[i].rank === '5') deck[i].points = 5;
-    else if (deck[i].rank === '6') deck[i].points = 6;
-    else if (deck[i].rank === '7') deck[i].points = 7;
-    else if (deck[i].rank === '8') deck[i].points = 8;
-    else if (deck[i].rank === '9') deck[i].points = 9;
-    else deck[i].points = 10
+    else if (deck[i].rank === '10' || deck[i].rank === 'J' || deck[i].rank === 'Q' || deck[i].rank === 'K' ) deck[i].points = 10;
+    else deck[i].points = Number(deck[i].rank)
   }
 
   const shuffledDeck = _.shuffle(deck);
+
   const arr = []
   for (let i = 0; i < arrayOfPlayers.length; i++) {
 
@@ -89,18 +76,15 @@ function startGame(arrayOfPlayers, cardsPerHand) {
   const maxScore = Math.max(...arr)
   const arrayOfMaxScores = indexesOfMaxScores(arr)  //returns arrays of indexes of tied high scores, these indixes will identify players with tied high scores  in the arrayOfPlayers array passed in.
 
-
   if (arrayOfMaxScores.length > 1) {
-
     let tieMessage = ''
     const tiedPlayers = []
     for (let i = 0; i < arrayOfMaxScores.length; i++ ) {
       tiedPlayers.push(arrayOfPlayers[arrayOfMaxScores[i]]) // [arrayOfMaxScores[i]] allows us to identify the index of the tied players
-      tieMessage += `${arrayOfPlayers[arrayOfMaxScores[i]].name} `
+      tieMessage += `${arrayOfPlayers[arrayOfMaxScores[i]].name}, `
     }
     tieMessage += `are tied with ${arr[IndexOfMaxScore]} points. A tie breaker will now run...`
     console.log(tieMessage)
-
     console.log(`RESULT OF TIE BREAKER: `)
     startGame(tiedPlayers, cardsPerHand)
     return
@@ -118,7 +102,7 @@ function startGame(arrayOfPlayers, cardsPerHand) {
   for (let i = 0; i < arrayOfPlayers.length;i++) {
     participantsList.push(arrayOfPlayers[i].name)
     console.log('Hand Dealt:', arrayOfPlayers[i].name , arrayOfPlayers[i].hand)
-    // arrayOfPlayers[i].hand = [] //clears all hands
+
   }
   console.log(`Final Round Participants: ${participantsList.join(', ')}`)
   console.log(`All players' hands have been resetted`)
