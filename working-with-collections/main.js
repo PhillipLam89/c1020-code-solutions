@@ -1,12 +1,12 @@
 /* global _ */
 /* eslint-disable no-console */
 
-const currentPlayers = [{ name: 'Phillip', hand: [] }, { name: 'Cody', hand: [] }, { name: 'Uzair', hand: [] }, { name: 'Brett', hand: [] }];
+const currentPlayers = [{ name: 'Phillip', hand: [] }, { name: 'Cody', hand: [] }, { name: 'Uzair', hand: [] }, { name: 'Brett', hand: [] }, { name: 'UzairAA', hand: [] }, { name: 'BrettAA', hand: [] }, { name: 'BrettCCC', hand: [] }, { name: 'BrettAC', hand: [] }, { name: 'Bill', hand: [] }];
 let deck = [];
 const cardRanks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 const cardSuits = ['clubs','diamonds','hearts','spades']
 
-startGame(currentPlayers,2) //takes into account length of currentPlayers (2-to-8 players), the 2nd parameter sets numbers of card dealt each hand, maximum is 6.
+startGame(currentPlayers, 3) //takes into account length of currentPlayers (2-to-9 players), the 2nd parameter sets numbers of card dealt each hand, maximum is 5.
 
 
 function addNewPlayer(playerName) {
@@ -35,11 +35,10 @@ function indexesOfMaxScores(arr) {
     };
   };
   return maxIndexes;
-};
+}
 
 function startGame(arrayOfPlayers, cardsPerHand) {
-
-  if (arrayOfPlayers.length < 2 || arrayOfPlayers.length > 8 || cardsPerHand > 6) return 'must be at least 2 players|max 8 players. 6 cards MAX per hand'
+  if (arrayOfPlayers.length < 2 || arrayOfPlayers.length > 9 || cardsPerHand > 5 || cardsPerHand < 2) return console.log('There must be at least 2-8 players, each with 2-5 cards MAX per hand')
   deck = []
   for (let i = 0; i < arrayOfPlayers.length; i++) {
     arrayOfPlayers[i].hand = []
@@ -56,19 +55,16 @@ function startGame(arrayOfPlayers, cardsPerHand) {
     else if (deck[i].rank === '10' || deck[i].rank === 'J' || deck[i].rank === 'Q' || deck[i].rank === 'K' ) deck[i].points = 10;
     else deck[i].points = Number(deck[i].rank)
   }
-
   const shuffledDeck = _.shuffle(deck);
 
   const arr = []
   for (let i = 0; i < arrayOfPlayers.length; i++) {
-
     arrayOfPlayers[i].hand.push(shuffledDeck.splice(0, cardsPerHand)); //splice is used here as we need the original deck to be mutated as we draw cards
     arrayOfPlayers[i].hand = arrayOfPlayers[i].hand.flat();
     arrayOfPlayers[i].total = 0
     for (let j = 0; j < cardsPerHand; j ++ ) {
       arrayOfPlayers[i].total += arrayOfPlayers[i].hand[j].points  //adds up point values of each player's hand
     }
-
     arr.push(arrayOfPlayers[i].total)
   }
 
@@ -81,15 +77,21 @@ function startGame(arrayOfPlayers, cardsPerHand) {
     const tiedPlayers = []
     for (let i = 0; i < arrayOfMaxScores.length; i++ ) {
       tiedPlayers.push(arrayOfPlayers[arrayOfMaxScores[i]]) // [arrayOfMaxScores[i]] allows us to identify the index of the tied players
-      tieMessage += `${arrayOfPlayers[arrayOfMaxScores[i]].name}, `
+      tieMessage += `
+        ${arrayOfPlayers[arrayOfMaxScores[i]].name.toUpperCase()}'s HAND:
+        `
+      for (let j = 0; j < cardsPerHand; j++ ) {
+        tieMessage += `|${arrayOfPlayers[arrayOfMaxScores[i]].hand[j].rank} of ${arrayOfPlayers[arrayOfMaxScores[i]].hand[j].suit}|
+        `
+      }
     }
-    tieMessage += `are tied with ${arr[IndexOfMaxScore]} points. A tie breaker will now run...`
+    tieMessage += `
+    These hands are tied with ${arr[IndexOfMaxScore]} points each. A tie breaker will now run...`
     console.log(tieMessage)
     console.log(`RESULT OF TIE BREAKER: `)
     startGame(tiedPlayers, cardsPerHand)
     return
   }
-
   let winningHand = ''
 
   console.log(`The winner is ${arrayOfPlayers[IndexOfMaxScore].name.toUpperCase()}! With a total of ${arrayOfPlayers[IndexOfMaxScore].total} points. `)
@@ -107,4 +109,4 @@ function startGame(arrayOfPlayers, cardsPerHand) {
   console.log(`Final Round Participants: ${participantsList.join(', ')}`)
   console.log(`All players' hands have been resetted`)
   console.log(`Create a new player by typing addNewPlayer(playerNameHere), or delete a player with removePlayer(playerNameHere) then/or start a new game by typing startGame(currentPlayers, numbersOfCardsEachHand)`)
-  }
+}
