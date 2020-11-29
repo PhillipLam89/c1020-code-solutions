@@ -23,6 +23,7 @@ function removePlayer(playerName) {
   return `Player ${playerName} not found on current roster...`
 }
 
+   //this function checks to see if theres a tie (more than 1 max score)
 function indexesOfMaxScores(arr) {
   const maxValue = Math.max(...arr);
   const maxIndexes = [];
@@ -41,6 +42,7 @@ function startGame(arrayOfPlayers, cardsPerHand) {
   for (let i = 0; i < arrayOfPlayers.length; i++) {
     arrayOfPlayers[i].hand = []
   }
+  // the for loops below will create a proper 52 card deck without me having to type it
   for (const val of cardRanks) {
     deck.push({ rank: val }, { rank: val }, { rank: val }, { rank: val });
   }
@@ -73,11 +75,11 @@ function startGame(arrayOfPlayers, cardsPerHand) {
   const arr = []
   for (let i = 0; i < arrayOfPlayers.length; i++) {
 
-    arrayOfPlayers[i].hand.push(shuffledDeck.splice(0, cardsPerHand));
+    arrayOfPlayers[i].hand.push(shuffledDeck.splice(0, cardsPerHand)); //splice is used here as we need the original deck to be mutated as we draw cards
     arrayOfPlayers[i].hand = arrayOfPlayers[i].hand.flat();
     arrayOfPlayers[i].total = 0
     for (let j = 0; j < cardsPerHand; j ++ ) {
-      arrayOfPlayers[i].total += arrayOfPlayers[i].hand[j].points
+      arrayOfPlayers[i].total += arrayOfPlayers[i].hand[j].points  //adds up point values of each player's hand
     }
 
     arr.push(arrayOfPlayers[i].total)
@@ -85,7 +87,7 @@ function startGame(arrayOfPlayers, cardsPerHand) {
 
   const IndexOfMaxScore = arr.indexOf(Math.max(...arr))
   const maxScore = Math.max(...arr)
-  const arrayOfMaxScores = indexesOfMaxScores(arr)
+  const arrayOfMaxScores = indexesOfMaxScores(arr)  //returns arrays of indexes of tied high scores, these indixes will identify players with tied high scores  in the arrayOfPlayers array passed in.
 
 
   if (arrayOfMaxScores.length > 1) {
@@ -93,7 +95,7 @@ function startGame(arrayOfPlayers, cardsPerHand) {
     let tieMessage = ''
     const tiedPlayers = []
     for (let i = 0; i < arrayOfMaxScores.length; i++ ) {
-      tiedPlayers.push(arrayOfPlayers[arrayOfMaxScores[i]])
+      tiedPlayers.push(arrayOfPlayers[arrayOfMaxScores[i]]) // [arrayOfMaxScores[i]] allows us to identify the index of the tied players
       tieMessage += `${arrayOfPlayers[arrayOfMaxScores[i]].name} `
     }
     tieMessage += `are tied with ${arr[IndexOfMaxScore]} points. A tie breaker will now run... New results below.`
@@ -104,10 +106,8 @@ function startGame(arrayOfPlayers, cardsPerHand) {
 
   let winningHand = ''
 
-
-
   console.log(`The winner is ${arrayOfPlayers[IndexOfMaxScore].name.toUpperCase()}! With a total of ${arrayOfPlayers[IndexOfMaxScore].total} points. `)
-  for (let val of arrayOfPlayers[IndexOfMaxScore].hand ) {
+  for (let val of arrayOfPlayers[IndexOfMaxScore].hand ) { //displays winning hand
     winningHand += ' |' + val.rank + ' of ' + val.suit + '|'
   }
   console.log(`Winning hand: ${winningHand}.`);
@@ -116,7 +116,7 @@ function startGame(arrayOfPlayers, cardsPerHand) {
   for (let i = 0; i < arrayOfPlayers.length;i++) {
     participantsList.push(arrayOfPlayers[i].name)
     console.log('Hand Dealt:', arrayOfPlayers[i].name , arrayOfPlayers[i].hand)
-    arrayOfPlayers[i].hand = []
+    arrayOfPlayers[i].hand = [] //clears all hands
   }
   console.log(`Final Round Participants: ${participantsList.join(', ')}`)
   console.log(`All players' hands have been resetted`)
