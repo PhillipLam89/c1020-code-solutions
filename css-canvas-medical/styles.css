@@ -2,7 +2,10 @@
 body {
   font-family: sans-serif;
   font-size: 12px;
-  border: 4px solid red;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 400px;
 }
 
 p,
@@ -27,9 +30,6 @@ h2 {
 #big-container {
   height: auto;
   width: 1200px;
-  align-items: center;
-  margin-left: 10%;
-  margin-right: 10%;
   padding-top: 2%;
 }
 
@@ -39,9 +39,12 @@ h2 {
 }
 
 ul > a {
+  float: right;
   text-decoration: none;
   color: gray;
   font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 p > a {
@@ -55,7 +58,6 @@ p > a {
 }
 
 .header-items {
-  padding-top: 1%;
   border-bottom: 1px solid grey;
   font-weight: lighter;
 }
@@ -68,20 +70,26 @@ p > a {
 }
 
 .wrapper {
-  position: relative;
+  padding-bottom: 1.5rem;
   display: flex;
-  justify-content: space-between;
-  margin-left: 45%;
+  justify-content: space-around;
+  align-items: flex-end;
   right: 10px;
+  width: 1200px;
   bottom: 30px;
 }
 
 .contact {
+  transform: translateY(0.5rem);
   background-color: rgb(35, 35, 126);
   color: white;
   border-radius: 5%;
   width: 110px;
   height: 2rem;
+}
+
+button {
+  cursor: pointer;
 }
 
 #container2 {
@@ -93,40 +101,39 @@ p > a {
 }
 
 .heading-1 {
-  position: absolute;
   left: 5.5rem;
   top: 2rem;
-  color: white;
   font-weight: bolder;
   line-height: 0.5rem;
   opacity: inherit;
   text-align: left;
 }
 
-.paragraph {
-  position: absolute;
-  top: 12.5rem;
-  left: 5.5rem;
-  width: 320px;
+#text-wrapper {
+  display: flex;
+  flex-direction: column;
   color: white;
+  justify-content: flex-start;
+  position: absolute;
+  left: 5rem;
+  bottom: 2%;
+  top: 2rem;
+}
+
+.paragraph {
+  width: 40%;
   text-align: left;
-  font-weight: bold;
-  line-height: 1.6rem;
-  overflow: hidden;
-  height: fit-content;
+  font-size: 1.1rem;
+  line-height: 2rem;
 }
 
 .get-started-button {
-  position: absolute;
-  left: 9%;
-  bottom: 10%;
   height: 3rem;
   width: 180px;
   border-radius: 5%;
   color: white;
   background-color: rgb(35, 35, 126);
-  margin-left: auto;
-  margin-top: auto;
+  margin-top: 2rem;
 }
 
 #container3 {
@@ -195,7 +202,7 @@ p > a {
 
 .canvas-white-logo {
   width: 75%;
-  margin-bottom: 8%;
+  padding-bottom: 2.5rem;
 }
 
 #container6 {
@@ -220,6 +227,7 @@ p > a {
   color: whitesmoke;
   font-weight: bold;
   line-height: 1.8rem;
+  text-align: left;
 }
 
 #container7 {
