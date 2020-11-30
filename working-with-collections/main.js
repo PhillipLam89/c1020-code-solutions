@@ -6,7 +6,7 @@ let deck = [];
 const cardRanks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 const cardSuits = ['clubs','diamonds','hearts','spades']
 
-startGame(currentPlayers, 3) //takes into account length of currentPlayers (2-to-9 players), the 2nd parameter sets numbers of card dealt each hand, maximum is 5.
+startGame(currentPlayers, 5) //takes into account length of currentPlayers (2-to-9 players), the 2nd parameter sets numbers of card dealt each hand, maximum is 5.
 
 
 function addNewPlayer(playerName) {
@@ -72,29 +72,31 @@ function startGame(arrayOfPlayers, cardsPerHand) {
   const arrayOfMaxScores = indexesOfMaxScores(arr)  //returns arrays of indexes of tied high scores, these indixes will identify players with tied high scores  in the arrayOfPlayers array passed in.
 
   if (arrayOfMaxScores.length > 1) {
-    let tieMessage = `WHOA THERES ${arrayOfMaxScores.length} PLAYERS TIED FOR FIRST PLACE:
+
+    let tieMessage = `WHOA THERES ${arrayOfMaxScores.length} PLAYERS TIED FOR FIRST PLACE: <br>
     `
     const tiedPlayers = []
     for (let i = 0; i < arrayOfMaxScores.length; i++ ) {
       tiedPlayers.push(arrayOfPlayers[arrayOfMaxScores[i]]) // [arrayOfMaxScores[i]] allows us to identify the index of the tied players
       tieMessage += `
-        ${arrayOfPlayers[arrayOfMaxScores[i]].name.toUpperCase()}'s HAND:
+        <span class="tied-name"> ${arrayOfPlayers[arrayOfMaxScores[i]].name.toUpperCase()}'s HAND (tied) </span>: <br>
         `
       for (let j = 0; j < cardsPerHand; j++ ) {
-        tieMessage += `|${arrayOfPlayers[arrayOfMaxScores[i]].hand[j].rank} of ${arrayOfPlayers[arrayOfMaxScores[i]].hand[j].suit}|
+        tieMessage += `|${arrayOfPlayers[arrayOfMaxScores[i]].hand[j].rank} of ${arrayOfPlayers[arrayOfMaxScores[i]].hand[j].suit}|<br>
         `
       }
     }
     tieMessage += `
-    These hands are tied with ${arr[indexOfMaxScore]} points each. A tie breaker will now run...`
-    console.log(tieMessage)
+    These hands are tied with ${arr[indexOfMaxScore]} points each. <br><br> A tie breaker will now run...`
+
     console.log(`RESULT OF TIE BREAKER: `)
     startGame(tiedPlayers, cardsPerHand)
+    document.querySelector('#tied').innerHTML = '<h2> ' + tieMessage
     return
   }
   let winningHand = ''
 
-  console.log(`The winner is ${arrayOfPlayers[indexOfMaxScore].name.toUpperCase()}! With a total of ${arrayOfPlayers[indexOfMaxScore].total} points. `)
+  document.querySelector('#winner').innerHTML =  ` <h1> The winner is <span class="winner-name"> ${arrayOfPlayers[indexOfMaxScore].name.toUpperCase()}</span>! With a total of ${arrayOfPlayers[indexOfMaxScore].total} points. `
   for (let val of arrayOfPlayers[indexOfMaxScore].hand ) { //displays winning hand
     winningHand += ' |' + val.rank + ' of ' + val.suit + '|'
   }
@@ -105,14 +107,16 @@ function startGame(arrayOfPlayers, cardsPerHand) {
   for (let i = 0; i < arrayOfPlayers.length;i++) {
     participantsList.push(arrayOfPlayers[i].name)
     displayAllHands += `
-    ${arrayOfPlayers[i].name}'s hand:
+    <span class="players-hand"> ${arrayOfPlayers[i].name}'s HAND (final): <br></span>
     `
+
     for (let j = 0; j < arrayOfPlayers[i].hand.length; j++) {
-      displayAllHands += ` |${arrayOfPlayers[i].hand[j].rank} of ${arrayOfPlayers[i].hand[j].suit}|
-    `
+      displayAllHands += ` |${arrayOfPlayers[i].hand[j].rank} of ${arrayOfPlayers[i].hand[j].suit}| <br>
+      `
     }
 
   }
+  document.querySelector('#results').innerHTML = '<h2> ' + displayAllHands
   console.log(displayAllHands)
   console.log(`Final Round Participants: ${participantsList.join(', ')}`)
   console.log(`All players' hands have been resetted`)
