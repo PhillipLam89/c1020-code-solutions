@@ -7,8 +7,8 @@ let count = 0
 const grades = [
 
 ];
-express.json()
-app.use(express.json(grades))
+
+app.use(express.json())
 
 app.get('/api/grades', (req, res) => {
   res.json(grades);
@@ -17,7 +17,8 @@ app.get('/api/grades', (req, res) => {
 
 app.post('/api/grades/', (req, res) => {
   count++
-  req.body.nextId = count
+  req.body.id = count
+  grades.push(req.body) //updates original file
   res.status(201)
   res.send(req.body)
 
