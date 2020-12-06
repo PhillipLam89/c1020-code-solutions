@@ -42,7 +42,7 @@ app.post('/api/notes', (req, res) => {
       if (err) { //this err will only happen during writing phase
         res.status(500).send({ error: 'An unexpected error occurred.' });
       } else {
-        return res.status(201).send(json.notes[json.nextId - 1])
+        res.status(201).send(json.notes[json.nextId - 1])
       }
     });
   }
