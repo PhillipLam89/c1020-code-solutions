@@ -64,10 +64,10 @@ app.put('/api/grades/:gradeId', (req, res) => {  //updates current id if it exis
     return res.status(400).json({ error: `Invalid input, gradeId must be a positive integer only.` })
   }
   else if (!updatedCourse || !updatedName || !updatedScore) {
-    return res.status(404).json({ error: `The fields 'course', 'name', and 'score' are required` })
+    return res.status(400).json({ error: `The fields 'course', 'name', and 'score' are required` })
   }
   else if (updatedScore < 1 || updatedScore > 100) {
-    return res.status(404).json({ error: `scores must be between 1-100` })
+    return res.status(400).json({ error: `scores must be between 1-100` })
   }
   const query = {
     text: `
@@ -86,9 +86,13 @@ app.put('/api/grades/:gradeId', (req, res) => {  //updates current id if it exis
         res.status(404).json({ error: `Cannot find student with gradeId ${id} to update...` })
       }
       else if (result.rows[0]) {
-        res.status(201).json(result.rows[0])
+        res.status(200).json(result.rows[0])
       }
     })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error has occurred!' });
+    });
 })
 
 
@@ -116,7 +120,7 @@ app.delete('/api/grades/:gradeId', (req, res) => {
         res.status(404).json({ error: `Cannot find student with gradeId ${id} to delete...` })
       }
       else if (result.rows[0]) {
-        res.status(201).send(`Success! student with gradeId ${id} has been deleted.`)
+        res.status(204).send(`Success! student with gradeId ${id} has been deleted.`)
       }
     })
     .catch(err => {
