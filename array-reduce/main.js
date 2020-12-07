@@ -19,32 +19,18 @@ const traits = [
   { trainer: 'ash' }
 ];
 
+console.log('Sum of all array values:', numbers.reduce((accumulator, val) => accumulator + val, 0));
+console.log('Product of all array values:', numbers.reduce((accumulator, val) => accumulator * val, 1));
 
-console.log('Sum of all array values:', numbers.reduce((accumulator, val) => accumulator + val, 0))
-console.log('Product of all array values:', numbers.reduce((accumulator, val) => accumulator * val, 1))
-
-
-let total = 0
 const balance = account.reduce((acc, arr) => {
-  arr.type === 'deposit' ? total += arr.amount : total -= arr.amount
-},0);
-console.log('balance:', total);
 
+  if (arr.type === 'deposit') {
+    return acc + arr.amount;
+  } else {
+    return acc - arr.amount;
+  }
+}, 0);
+console.log('balance:', balance);
 
-
-
-const composite = {} //start with empty obj
-traits.reduce((x, y) => {
-  Object.assign(composite, y) //properties in y will be added to previous obj
-}, {}) // initiallizor is empty obj
-console.log('Combined:', composite)
-
-
-
-// const composite2 = {};
-// for (let i = 0; i < traits.length; i++) {
-//   for (let objs in traits[i]) {
-//     composite2[objs] = traits[i][objs]
-//   }
-// }
-// console.log('composite2:', composite2);
+const composite = traits.reduce((acc, arr) => Object.assign(acc, arr));
+console.log('composite: ', composite);
