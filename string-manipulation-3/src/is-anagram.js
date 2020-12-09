@@ -13,10 +13,6 @@ function isAnagram(firstString, secondString) {
     }
   }
   for (var i = 0; i < firstStrNoSpaces.length; i++) {
-    if (firstStrNoSpaces.includes(secondStrNoSpaces[i])) {
-      return true;
-    } else {
-      return false;
-    }
+    if (firstStrNoSpaces.includes(secondStrNoSpaces[i])) return true;
   }
 }
