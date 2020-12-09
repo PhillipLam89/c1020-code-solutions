@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 const $root = document.querySelector('#root');
-const newButton = React.createElement(
-  'button',
-  null,
-  'Click Me!'
-);
 
-ReactDOM.render(newButton, $root);
+function ClickMeButton() {
+  return <button>Click Me!</button>;
+}
+
+const button = <ClickMeButton />;
+ReactDOM.render(
+  button,
+  $root
+);
