@@ -1,15 +1,10 @@
 /* eslint-disable no-unused-vars */
-function invert(source) {
-  var reversedObject = {};
-  var keys = [];
-  var values = [];
 
-  for (var key in source) {
-    keys.push(key);
-    values.push(source[key]);
+function invert(source) {
+  const reversed = {};
+  for (const prop in source) {
+    const value = source[prop];
+    reversed[value] = prop;
   }
-  for (var i = 0; i < keys.length; i++) {
-    reversedObject[values[i]] = keys[i];
-  }
-  return reversedObject;
+  return reversed;
 }
