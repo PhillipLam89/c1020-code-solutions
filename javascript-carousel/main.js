@@ -12,7 +12,7 @@ function displayHelper() {
   }
 }
 
-document.addEventListener('click', function(event){
+function arrowIsClicked() {
   if (event.target.className === 'fas fa-chevron-right right-arrow') {
     clearInterval(carousel)
     $circularButtons[count].className = 'empty far fa-circle'
@@ -25,10 +25,19 @@ document.addEventListener('click', function(event){
     clearInterval(carousel)
     $circularButtons[count].className = 'empty far fa-circle'
     count--
-    count < 0 ? count = imagesArr.length - 1 : count = count
+    count < 0 ? count = imagesArr.length - 1 : count
     $img.setAttribute('src', imagesArr[count]);
     $circularButtons[count].className = 'filled fas fa-circle'
     carousel = setInterval(displayHelper, 3000)
+  }
+}
+
+document.addEventListener('click', function(event){
+  if (event.target.className === 'fas fa-chevron-right right-arrow') {
+    arrowIsClicked()
+  }
+  else if (event.target.className === 'fas fa-chevron-left left-arrow') {
+    arrowIsClicked()
   }
   else if (event.target.className === 'filled fas fa-circle' || event.target.className === 'empty far fa-circle' ) {
     clearInterval(carousel);
@@ -36,14 +45,12 @@ document.addEventListener('click', function(event){
       $circularButtons[j].setAttribute('class', 'empty far fa-circle');
     }
     event.target.className = 'filled fas fa-circle';
-    let selectedLocationIndex = null;
     for (let k = 0; k < $circularButtons.length; k++) {
       if ($circularButtons[k].className === 'filled fas fa-circle') {
-        selectedLocationIndex = k; // this will give location of which circle the user clicked
+        count = k; // this will give location of which circle the user clicked
       }
     }
-    count = selectedLocationIndex
-    $img.setAttribute('src', imagesArr[selectedLocationIndex]);
+    $img.setAttribute('src', imagesArr[count]);
     carousel = setInterval(displayHelper, 3000)
   }
 })
