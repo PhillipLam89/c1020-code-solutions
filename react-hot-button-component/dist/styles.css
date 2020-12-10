@@ -1,0 +1,43 @@
+div {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  height: 100px;
+  width: 200px;
+  box-shadow: #e06666;
+}
+
+button:active {
+  transform: translateY(1rem);
+}
+
+.purple {
+  background-color: #180547;
+  color: white;
+}
+
+.light-purple {
+  background-color: #9b7ce9;
+  color: white;
+}
+
+.red {
+  background-color: #c74646;
+  color: white;
+}
+
+.orange {
+  background-color: #e9953c;
+}
+
+.yellow {
+  background-color: rgb(221, 221, 35);
+}
+
+.white {
+  background-color: white;
+}
