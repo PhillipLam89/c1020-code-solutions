@@ -1,23 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
-function NotClicked(props) {
-  return (
-    <button onClick={props.handleClick}>
-      Login
-    </button>
-  );
-}
-
-function Clicked(props) {
-  return (
-    <button onClick={props.handleClick}>
-      Logout
-    </button>
-  );
-}
-
 class CustomButton extends React.Component {
   constructor(props) {
     super(props)
