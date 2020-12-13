@@ -13,13 +13,13 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 50%;
+  padding-top: 3rem;
 }
 
 .status-logo {
   position: absolute;
-  right: 35%;
-  top: 40%;
+  right: 40%;
+  top: 8%;
 }
 
 .wrapper {
