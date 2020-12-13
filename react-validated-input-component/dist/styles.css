@@ -1,0 +1,33 @@
+
+body {
+  margin: 0 auto;
+  font-family: sans-serif, serif;
+}
+
+label {
+  font-weight: bolder;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50%;
+}
+
+.status-logo {
+  position: absolute;
+  right: 35%;
+  top: 40%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  color: red;
+  font-size: 0.75rem;
+}
