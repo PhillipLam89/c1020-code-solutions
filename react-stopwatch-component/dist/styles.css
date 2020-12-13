@@ -6,9 +6,6 @@
   transform: translate(-50%, -50%);
 }
 
-/* .tool-tip-text {
-  display: none
-} */
 .tool-tip-text {
   position: absolute;
   top: -25%;

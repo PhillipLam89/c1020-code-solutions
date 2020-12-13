@@ -10,8 +10,6 @@ class Stopwatch extends React.Component {
       time: 0
     };
     this.handleClick = this.handleClick.bind(this);
-    this.pressPlayOrPause = this.pressPlayOrPause.bind(this);
-    this.unpause = this.unpause.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
   }
 
@@ -25,7 +23,6 @@ class Stopwatch extends React.Component {
           () => this.pressPlayOrPause(), 1000);
       } else if (!this.state.isRunning) {
         clearInterval(this.startCount);
-        this.unpause();
       }
     });
   }
@@ -34,14 +31,6 @@ class Stopwatch extends React.Component {
     this.setState({
       time: this.state.time + 1
     });
-  }
-
-  unpause() {
-    if (!this.state.isRunning) {
-      this.setState({
-        time: this.state.time
-      });
-    }
   }
 
   resetTimer() {
@@ -53,8 +42,8 @@ class Stopwatch extends React.Component {
   }
 
   render() {
-    let buttonImage = '';
-    this.state.isRunning ? buttonImage = 'fas fa-pause' : buttonImage = 'fas fa-play-circle';
+
+    const buttonImage = this.state.isRunning ? 'fas fa-pause' : 'fas fa-play-circle';
     return (
       <div className="wrapper">
         <div onClick={this.resetTimer} className="container">
