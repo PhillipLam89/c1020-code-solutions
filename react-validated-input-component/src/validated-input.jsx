@@ -16,30 +16,34 @@ class ValidatedInput extends React.Component {
   render() {
     const password = this.state.password;
     let icon = '';
+    let isPasswordValid = '';
     let responseText = '';
-    if (!password) {
-      icon = 'fas fa-times';
-      responseText = 'A password is required, 8+ characters and at least ONE special character a special character (!, @, #, $, %, ^, &, *, (, or ))';
-    } else if (password.length < 8) {
-      icon = 'fas fa-times';
-      responseText = 'Password is too short, 8 characters or longer required';
-    } else if (password.length >= 8 && (!password.includes('@') || !password.includes('!') || !password.includes('#') || !password.includes('$') || !password.includes('%') || !password.includes('^') || !password.includes('&') || !password.includes('*') || !password.includes('(') || !password.includes(')'))) {
-      icon = 'fas fa-times';
-      responseText = 'Please add at least ONE special character (!, @, #, $, %, ^, &, *, (, or ))';
-    }
     if (password.length >= 8 && (password.includes('@') || password.includes('!') || password.includes('#') || password.includes('$') || password.includes('%') || password.includes('^') || password.includes('&') || password.includes('*') || password.includes('(') || password.includes(')'))) {
       icon = 'fas fa-check';
-      responseText = ' ';
+      responseText = 'Password requirements met';
+      isPasswordValid = 'yes';
+    } else if (!password) {
+      icon = 'fas fa-times';
+      responseText = 'Cannot be left blank as a password is required, with 8+ characters and at least ONE special character  (!, @, #, $, %, ^, &, *, (, or ))';
+    } else if (password.length < 8) {
+      icon = 'fas fa-times';
+      responseText = 'Password is too short, 8+ characters and at least ONE special character (!, @, #, $, %, ^, &, *, (, or )) is required';
+    } else {
+      icon = 'fas fa-times';
+      responseText = 'Password length acceptable, but please add add at least ONE  of the following special characters to it : !, @, #, $, %, ^, &, *, ( , or )';
     }
+
     return (
-      <form className="wrapper">
-        <div className="modal-container">
-          <label htmlFor="password" className="password-label">Password</label>
-          <input type="password" id="password" onChange={this.handleChange} value={this.state.password}></input>
-          <p className="response-text">{responseText}</p>
-        </div>
-        <div className="status-logo"><i className={icon}></i></div>
-      </form>
+      <div className="wrapper">
+        <form>
+          <div className="modal-container">
+            <label htmlFor="password" className="password-label">Password</label>
+            <input type="password" id="password" onChange={this.handleChange} value={this.state.password}></input>
+            <div className="status-logo"><i className={icon}></i></div>
+          </div>
+        </form>
+        <p className={isPasswordValid}>{responseText}</p>
+      </div>
     );
   }
 }
