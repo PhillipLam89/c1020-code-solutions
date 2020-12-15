@@ -1,0 +1,41 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.program-name {
+  background-color: lightgray;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 50%;
+}
+
+.program-name:hover {
+  color: red;
+  font-weight: bolder;
+}
+
+.program-name:active {
+  transform: scale(0.9);
+}
+
+.viewable {
+  font-size: 1rem;
+  padding: 0.25rem;
+}
+
+.hidden {
+  display: none;
+}
+
+p {
+  font-size: 1.5rem;
+  margin: 0;
+  background-color: lightskyblue;
+  width: 50%;
+}
