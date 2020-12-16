@@ -45,5 +45,5 @@ button:hover {
 }
 
 .selected-dot {
-  background-color: black;
+  background-color: rgb(12, 12, 12);
 }
