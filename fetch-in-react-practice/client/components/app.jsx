@@ -55,7 +55,7 @@ export default class App extends React.Component {
       .then(response => response.json())
       .then(data => {
         const newStateObject = Array.from(this.state.todos);
-        newStateObject.todos.push(data);
+        newStateObject.push(data);
         this.setState({ todos: newStateObject });
       })
       .catch(error => {
@@ -82,7 +82,7 @@ export default class App extends React.Component {
 
     let toggledIndex = null;
 
-    this.state.todos.map((val, idx) => {
+    this.state.todos.forEach((val, idx) => {
       if (val.todoId === todoId) toggledIndex = idx;
     });
 
