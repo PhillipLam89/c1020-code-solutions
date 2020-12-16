@@ -54,9 +54,9 @@ export default class App extends React.Component {
     })
       .then(response => response.json())
       .then(data => {
-        const newStateObject = this.state;
+        const newStateObject = Array.from(this.state.todos);
         newStateObject.todos.push(data);
-        this.setState({ todos: newStateObject.todos });
+        this.setState({ todos: newStateObject });
       })
       .catch(error => {
         console.error('Error:', error);
