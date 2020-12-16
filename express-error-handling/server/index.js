@@ -70,7 +70,7 @@ app.get('/api/grades/:gradeId', (req, res, next) => {
     .then(result => {
       const [grade] = result.rows;
       if (!grade) {
-        throw new ClientError(400, `cannot find grade with gradeiD ${gradeId}`);
+        throw new ClientError(404, `cannot find grade with gradeiD ${gradeId}`);
       } else {
         res.json(grade);
       }
@@ -103,7 +103,7 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
     .then(result => {
       const [updatedGrade] = result.rows;
       if (!updatedGrade) {
-        throw new ClientError(400, `cannot find grade with gradeiD ${gradeId}`);
+        throw new ClientError(404, `cannot find grade with gradeiD ${gradeId}`);
       } else {
         res.json(updatedGrade);
       }
@@ -128,7 +128,7 @@ app.delete('/api/grades/:gradeId', (req, res, next) => {
     .then(result => {
       const [deletedGrade] = result.rows;
       if (!deletedGrade) {
-        throw new ClientError(400, `cannot find grade with gradeiD ${gradeId}`);
+        throw new ClientError(404, `cannot find grade with gradeiD ${gradeId}`);
       } else {
         res.sendStatus(204);
       }
