@@ -1,0 +1,49 @@
+#root {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+img {
+  transform: scale(0.75);
+}
+.container {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.arrow{
+  transform: scale(3);
+}
+.arrow:hover{
+  cursor: pointer;
+  color: blue;
+  transform: scale(3.5);
+}
+.arrow:active{
+
+  color: green;
+  transform: scale(3);
+}
+
+.dots-container {
+  border-radius: 50%;
+  font-size: 3rem;
+  color: gold;
+  font-weight: bolder;
+}
+button {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.selected-dot {
+  background-color: rgb(12, 12, 12);
+}
