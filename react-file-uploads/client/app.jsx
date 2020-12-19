@@ -23,7 +23,7 @@ export default class App extends React.Component {
       body: formData
     })
       .then(response => {
-        formData.reset();
+        event.target.reset();
         return response.body;
       })
       .catch(error => {
