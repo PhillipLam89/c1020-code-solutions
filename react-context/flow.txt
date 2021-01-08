@@ -1,0 +1,22 @@
+Feature "User can sign up"
+  - When the user fills out the form, providing "username" and "password" then clicking Log In,
+  this prompts the code to fall the fetch function which will then make a POST request to the back-end server.
+  the server then checks the validity of the user input (e.g., will throw an error if the user leaves blank fields). Then afterwards,
+  it will take the user-provided password and hashes it. Then, it will query the SQL database in order to insert
+  the new username and hased password there. Lastly, it will tell the client their newly made username.
+  Any client/server errors are handled through Express error-middleware as well as asynchronously via promise method chaining (promises returning promises) and catch methods.
+
+
+Feature "User can sign in"
+  - When the user attempts to sign up with a name/password, the ClientError module will first check to see if both
+  input fields arent blank, or it will throw an error. Then, the server will query the SQL database in order
+  to compare the stored hashedpassword with the password the user entered as well as their username. If the
+  passwords/username do not match, an error of invalid login will be thrown. If they do match, a payload
+  and digitally signed token (created by the JSONwebToken module ) will be created for and attached to that username.
+  Having the digitally signed token will be a sign of proof of user authenticity.
+
+
+Feature "User can STAY signed in"
+  - once a user is digitally signed in with a token, the state is now set to remember that user has succesfully logged in.
+  Example setState({isLoggedIn: true}). When it is set to this state, users are allowed to do more things, such as
+  making a post or logging out. Once logged out, the state will be set to false.
